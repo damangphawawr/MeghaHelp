@@ -1,0 +1,23 @@
+kind = "mobile"
+previewPath = "/"
+title = "MeghaHelp"
+version = "1.0.0"
+id = "artifacts/meghahelp"
+router = "expo-domain"
+
+[[services]]
+name = "expo"
+ensurePreviewReachable = "/status"
+paths = [ "/" ]
+localPort = 25799
+
+[services.development]
+run = "pnpm --filter @workspace/meghahelp run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/meghahelp", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/meghahelp", "run", "serve" ]
+
+[services.env]
+PORT = "25799"
+BASE_PATH = "/"

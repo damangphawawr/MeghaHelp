@@ -1,0 +1,62 @@
+/**
+ * MeghaHelp design tokens — forest green brand inspired by Meghalaya's landscapes.
+ * The useColors() hook reads light/dark based on system color scheme.
+ */
+const colors = {
+  light: {
+    text: '#0F1A12',
+    tint: '#1B5E3B',
+    background: '#F4F6F2',
+    foreground: '#0F1A12',
+    card: '#FFFFFF',
+    cardForeground: '#0F1A12',
+    primary: '#1B5E3B',
+    primaryForeground: '#FFFFFF',
+    secondary: '#EDF1E9',
+    secondaryForeground: '#1A2B1C',
+    muted: '#EDF1E9',
+    mutedForeground: '#6B7A6D',
+    accent: '#F59E0B',
+    accentForeground: '#FFFFFF',
+    destructive: '#DC2626',
+    destructiveForeground: '#FFFFFF',
+    border: '#DDE5D8',
+    input: '#DDE5D8',
+    success: '#16A34A',
+    successFg: '#FFFFFF',
+    warning: '#D97706',
+    warningFg: '#FFFFFF',
+    info: '#2563EB',
+    infoFg: '#FFFFFF',
+  },
+  dark: {
+    text: '#ECF2EC',
+    tint: '#4ADE80',
+    background: '#0B130D',
+    foreground: '#ECF2EC',
+    card: '#172119',
+    cardForeground: '#ECF2EC',
+    primary: '#4ADE80',
+    primaryForeground: '#0B130D',
+    secondary: '#1C2B1E',
+    secondaryForeground: '#D5E5D5',
+    muted: '#1C2B1E',
+    mutedForeground: '#7DAB80',
+    accent: '#FBBF24',
+    accentForeground: '#0B130D',
+    destructive: '#EF4444',
+    destructiveForeground: '#FFFFFF',
+    border: '#253228',
+    input: '#253228',
+    success: '#4ADE80',
+    successFg: '#0B130D',
+    warning: '#FBBF24',
+    warningFg: '#0B130D',
+    info: '#60A5FA',
+    infoFg: '#0B130D',
+  },
+  // Border radius used across cards, buttons, inputs, modals
+  radius: 14,
+};
+
+export default colors;
