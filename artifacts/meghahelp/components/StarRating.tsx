@@ -56,8 +56,17 @@ export function StarRating({
     );
   };
 
+  const a11yLabel = interactive
+    ? `Star rating, currently ${rating} out of 5`
+    : `${rating.toFixed(1)} out of 5 stars${reviewCount !== undefined ? `, ${reviewCount} reviews` : ''}`;
+
   return (
-    <View style={styles.container}>
+    <View
+      style={styles.container}
+      accessible={!interactive}
+      accessibilityLabel={interactive ? undefined : a11yLabel}
+      accessibilityRole={interactive ? undefined : 'text'}
+    >
       {[1, 2, 3, 4, 5].map(renderStar)}
       {reviewCount !== undefined && (
         <Text style={[styles.count, { color: colors.mutedForeground }]}>

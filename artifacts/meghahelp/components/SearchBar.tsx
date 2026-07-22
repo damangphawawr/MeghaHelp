@@ -41,7 +41,6 @@ export function SearchBar({
           editable={!isReadonly}
           autoFocus={autoFocus && !isReadonly}
           style={[styles.input, { color: colors.foreground }]}
-          pointerEvents={isReadonly ? 'none' : 'auto'}
           returnKeyType="search"
         />
         {value.length > 0 && !isReadonly && (

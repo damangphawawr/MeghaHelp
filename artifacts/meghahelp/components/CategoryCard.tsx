@@ -25,6 +25,10 @@ export function CategoryCard({ category, onPress, isSelected = false }: Category
       ]}
       onPress={onPress}
       activeOpacity={0.8}
+      accessibilityRole="button"
+      accessibilityLabel={`${category.name} category`}
+      accessibilityState={{ selected: isSelected }}
+      accessibilityHint={isSelected ? 'Tap to deselect' : 'Tap to filter by this category'}
     >
       <View
         style={[

@@ -28,6 +28,8 @@ const colors = {
     warningFg: '#FFFFFF',
     info: '#2563EB',
     infoFg: '#FFFFFF',
+    /** WhatsApp brand green — used in ContactButtons */
+    whatsapp: '#25D366',
   },
   dark: {
     text: '#ECF2EC',
@@ -54,6 +56,7 @@ const colors = {
     warningFg: '#0B130D',
     info: '#60A5FA',
     infoFg: '#0B130D',
+    whatsapp: '#25D366',
   },
   // Border radius used across cards, buttons, inputs, modals
   radius: 14,

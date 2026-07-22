@@ -7,6 +7,7 @@ import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useColors } from '@/hooks/useColors';
+import { shadow } from '@/utils/shadow';
 import { useWorkers } from '@/context/WorkersContext';
 import { useAuth } from '@/context/AuthContext';
 import { WorkerCard } from '@/components/WorkerCard';
@@ -199,11 +200,7 @@ const styles = StyleSheet.create({
   header: {
     paddingHorizontal: 16,
     paddingBottom: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.06,
-    shadowRadius: 8,
-    elevation: 3,
+    ...shadow('md'),
   },
   headerRow: {
     flexDirection: 'row',
@@ -235,11 +232,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     alignItems: 'center',
     gap: 5,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.06,
-    shadowRadius: 4,
-    elevation: 2,
+    ...shadow('sm'),
   },
   featuredAvatar: {
     width: 50, height: 50, borderRadius: 25,

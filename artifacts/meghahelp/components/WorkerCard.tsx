@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useColors } from '@/hooks/useColors';
+import { shadow } from '@/utils/shadow';
 import { Worker } from '@/types';
 import { Avatar } from '@/components/Avatar';
 import { StarRating } from '@/components/StarRating';
@@ -22,11 +23,18 @@ export function WorkerCard({ worker, onPress }: WorkerCardProps) {
 
   const displayProfession = worker.customProfession || worker.profession;
 
+  const a11yLabel =
+    `${worker.fullName}, ${displayProfession}, ` +
+    `rated ${worker.rating} out of 5, ${worker.district}, ${worker.availability}`;
+
   return (
     <TouchableOpacity
       style={[styles.card, { backgroundColor: colors.card }]}
       onPress={onPress}
       activeOpacity={0.82}
+      accessibilityRole="button"
+      accessibilityLabel={a11yLabel}
+      accessibilityHint="Opens worker profile"
     >
       <Avatar name={worker.fullName} photo={worker.profilePhoto} size={58} />
 
@@ -80,11 +88,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     borderRadius: 16,
     gap: 12,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.06,
-    shadowRadius: 8,
-    elevation: 2,
+    ...shadow('md'),
   },
   content: {
     flex: 1,

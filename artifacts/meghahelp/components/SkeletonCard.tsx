@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Animated, StyleSheet } from 'react-native';
 import { useColors } from '@/hooks/useColors';
+import { shadow } from '@/utils/shadow';
 
 /** Animated shimmer skeleton for worker card loading state. */
 export function SkeletonCard() {
@@ -13,12 +14,12 @@ export function SkeletonCard() {
         Animated.timing(opacity, {
           toValue: 1,
           duration: 750,
-          useNativeDriver: true,
+          useNativeDriver: false,
         }),
         Animated.timing(opacity, {
           toValue: 0.4,
           duration: 750,
-          useNativeDriver: true,
+          useNativeDriver: false,
         }),
       ])
     );
@@ -48,11 +49,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     borderRadius: 16,
     gap: 14,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
-    elevation: 1,
+    ...shadow('sm'),
   },
   avatar: {
     width: 60,

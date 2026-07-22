@@ -30,6 +30,9 @@ export function Avatar({ name, photo, size = 48 }: AvatarProps) {
           backgroundColor: colors.primary + '20',
         },
       ]}
+      accessible
+      accessibilityLabel={photo ? `${name}'s profile photo` : `${name}'s initials`}
+      accessibilityRole="image"
     >
       {photo ? (
         <Image
