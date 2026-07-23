@@ -21,22 +21,18 @@
       "package": "com.meghahelp.app"
     },
     "web": {
-      "favicon": "./assets/images/icon.png"
+      "favicon": "./assets/images/icon.png",
+      "output": "single",
+      "bundler": "metro"
     },
     "plugins": [
       [
         "expo-router",
         {
-          "origin": "https://replit.com/"
+          "origin": "https://meghahelp.vercel.app"
         }
       ],
       "expo-font",
       "expo-web-browser",
       "expo-image-picker"
-    ],
-    "experiments": {
-      "typedRoutes": true,
-      "reactCompiler": true
-    }
-  }
-}
+   
