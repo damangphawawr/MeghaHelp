@@ -14,22 +14,14 @@ export default function LoginScreen() {
   const colors = useColors();
   const insets = useSafeAreaInsets();
   const router = useRouter();
-  const { signInWithGoogle, needsOnboarding } = useAuth();
-  const [loading, setLoading] = useState(false);
+  const { signInWithGoogle, isAuthenticating, authError, needsOnboarding } = useAuth();
 
   const topPad = Platform.OS === 'web' ? 67 : insets.top;
   const bottomPad = Platform.OS === 'web' ? 34 : insets.bottom;
 
   const handleGoogleSignIn = async () => {
-    setLoading(true);
     await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    try {
-      await signInWithGoogle();
-      // After sign-in, go to onboarding to collect phone/district
-      router.replace('/auth/onboarding');
-    } finally {
-      setLoading(false);
-    }
+    await signInWithGoogle();
   };
 
   const handleGuest = () => {
@@ -72,18 +64,24 @@ export default function LoginScreen() {
 
       {/* Auth buttons */}
       <View style={[styles.actions, { paddingBottom: bottomPad + 24 }]}>
+        {authError && (
+          <Text style={[styles.errorText, { color: colors.destructive }]}>
+            {authError}
+          </Text>
+        )}
+
         <TouchableOpacity
-          style={[styles.googleBtn, { backgroundColor: colors.primary, opacity: loading ? 0.7 : 1 }]}
+          style={[styles.googleBtn, { backgroundColor: colors.primary, opacity: isAuthenticating ? 0.7 : 1 }]}
           onPress={handleGoogleSignIn}
-          disabled={loading}
+          disabled={isAuthenticating}
         >
-          {loading ? (
+          {isAuthenticating ? (
             <ActivityIndicator color="#fff" size="small" />
           ) : (
             <Ionicons name="logo-google" size={22} color="#fff" />
           )}
           <Text style={styles.googleBtnText}>
-            {loading ? 'Signing in...' : 'Continue with Google'}
+            {isAuthenticating ? 'Signing in...' : 'Continue with Google'}
           </Text>
         </TouchableOpacity>
 
@@ -122,6 +120,7 @@ const styles = StyleSheet.create({
   chip: { flexDirection: 'row', alignItems: 'center', gap: 5, paddingHorizontal: 12, paddingVertical: 7, borderRadius: 20 },
   chipText: { fontSize: 13, fontFamily: 'Inter_500Medium' },
   actions: { paddingHorizontal: 24, gap: 14 },
+  errorText: { fontSize: 13, fontFamily: 'Inter_500Medium', textAlign: 'center', lineHeight: 19 },
   googleBtn: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
     gap: 12, paddingVertical: 16, borderRadius: 16,
