@@ -35,4 +35,10 @@
       "expo-font",
       "expo-web-browser",
       "expo-image-picker"
-   
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}
