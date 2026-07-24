@@ -8,6 +8,7 @@
     "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
   },
   "private": true,
+  "packageManager": "pnpm@11.16.0",
   "dependencies": {
     "@replit/connectors-sdk": "^0.4.1"
   },
