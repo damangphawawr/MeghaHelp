@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import nodemailer from 'nodemailer';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
